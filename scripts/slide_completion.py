@@ -31,7 +31,6 @@ def main():
         if row.user_id != student:
             if previous_slide == "problem":
                 student_dict[student].append(interaction_string)
-                print(student_dict[student])
                 interaction_string = [0]*5
             student = row.user_id
             student_dict[student] = []
@@ -57,12 +56,41 @@ def main():
         if len(student_dict[student]) != 0 and [0,0,0,0,0] not in student_dict[student]:
             final_student_dict[student] = student_dict[student]
 
+    outcomes_dict = {}
+    sequences_dict = {}
     for student in final_student_dict:
-        print(final_student_dict[student])
+        for entry in final_student_dict[student]:
+            sequence = tuple(entry)
+            if sequence not in sequences_dict:
+                sequences_dict[sequence] = 0
+            else:
+                sequences_dict[sequence] += 1
 
+            outcome = tuple(entry[-2:])
+            if outcome not in outcomes_dict:
+                outcomes_dict[outcome] = 0
+            else:
+                outcomes_dict[outcome] += 1
+
+            # Tuples are hashable 
+
+    print(outcomes_dict)
+    print(sequences_dict)
     # Len(0) occurs when the row event name is neither of the three choices, and 
     # [0,0,0,0,0] occurs when the 
 
+    plt.bar([str(key) for key in outcomes_dict.keys()], outcomes_dict.values())
+    plt.title("Distribution of problem outcomes")
+    plt.xlabel("Outcomes")
+    plt.ylabel("Count")
+    plt.show()
+
+    plt.bar([str(key) for key in sequences_dict.keys()], sequences_dict.values())
+    plt.title("Distribution of interaction sequences")
+    plt.xlabel("Interaction sequence")
+    plt.ylabel("Count")
+    plt.show()
+    
 if __name__ == "__main__":
     main()
 
