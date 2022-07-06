@@ -62,35 +62,29 @@ def main():
         elif row.event_name == "problem_passed":
             student_dict[student][row.slide_no] = 2
 
-
-    final_student_dict = {}
-    for student in student_dict:
-        if len(student_dict[student]) != 0:
-            # and [0,0,0,0,0,0] not in student_dict[student]
-            final_student_dict[student] = student_dict[student]
-
+    # Dictionary to store the outcome tuples and their 
+    # corresponding counts 
     outcomes_dict = {}
+
+    # Dictionary to store the interaction sequences and their 
+    # corresponding counts 
     sequences_dict = {}
-    for student in final_student_dict:
-        entry = final_student_dict[student] # Adds all the runs
+    
+    for student in student_dict:
+        entry = student_dict[student] 
         sequence = tuple(entry)
         if sequence not in sequences_dict:
             sequences_dict[sequence] = 1
         else:
             sequences_dict[sequence] += 1
-
-        outcome = tuple(entry[-2:]) # initially we had 5 spots, don't count slide 0
+        outcome = tuple(entry[-2:]) 
         if outcome not in outcomes_dict:
             outcomes_dict[outcome] = 1
         else:
             outcomes_dict[outcome] += 1
 
-            # Tuples are hashable 
-
     print(outcomes_dict)
     print(sequences_dict)
-    # Len(0) occurs when the row event name is neither of the three choices, and 
-    # [0,0,0,0,0] occurs when the 
 
     plt.bar([str(key) for key in outcomes_dict.keys()], outcomes_dict.values())
     plt.title("Distribution of problem outcomes")
