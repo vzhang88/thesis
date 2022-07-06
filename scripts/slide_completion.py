@@ -21,7 +21,7 @@ def filter(file):
 def main():
     file = 'events_processed.csv'
     df = filter(file)
-    second_df = df[(df.slide_no < 5)]
+    second_df = df[(df.slide_no < 13)] 
 
     # Sort the dataset by users 
     second_df.sort_values(by=['user_id'])
@@ -34,7 +34,7 @@ def main():
     student = "3b9f1dbe452304fce7316bbb9734b7d3"
     
     # The interaction string for each student 
-    interaction_string = [0]*6
+    interaction_string = [0]*13
 
     student_dict[student] = interaction_string
 
@@ -49,7 +49,7 @@ def main():
 
             # Construct a new zeroed interaction string and assign
             # it to the corresponding student entry in the dict
-            interaction_string = [0]*6
+            interaction_string = [0]*13
             student_dict[student] = interaction_string
 
         # We have encountered a slide steps complete event
@@ -69,7 +69,7 @@ def main():
     # Dictionary to store the interaction sequences and their 
     # corresponding counts 
     sequences_dict = {}
-    
+
     for student in student_dict:
         entry = student_dict[student] 
         sequence = tuple(entry)
