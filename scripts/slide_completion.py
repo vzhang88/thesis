@@ -22,14 +22,13 @@ def filter(file, challenge_name, problem_name):
     This function returns a dictionary of students; keys are student IDs and  values are another dictionary where 
     keys are problems attempted by student and values are events completed by student
 
-    Input: Filename of the dataset
+    Input: Filename of the dataset and name of the challenge
     Output: Dictionary of students
 """
-def get_student_problem_interactions(file):
+def get_student_problem_interactions(file, challenge_name):
     os.chdir(r"C:\Users\vince\Documents\thesis\data\raw_data\events")
 
     # Filtered dataset
-    challenge_name = "challenge-newbies-2018"
     df = filter(file, challenge_name)
 
     # Dictionary that will be returned
@@ -356,7 +355,10 @@ def get_default_sequences(challenge_name):
 
     file = 'events_processed.csv'
     df = pd.read_csv(file) 
-    problem_names = ["w1p1", "w1p2", "w2p1", "w2p2", "w3p1n", "w3p2", "w4p1", "w4p2", "w5p1", "w5p2"]
+    if challenge_name == "challenge-newbies-2018":
+        problem_names = ["w1p1", "w1p2", "w2p1", "w2p2", "w3p1n", "w3p2", "w4p1", "w4p2", "w5p1", "w5p2"]
+    elif challenge_name == "challenge-beginners-2018":
+        problem_names =  ["w1p1", "w1p2", "w2p1", "w2p2", "w3p1", "w3p2", "w4p1", "w4p2", "w5p1", "w5p2"]
     default_sequences = []
 
     # Iterate through all problems
@@ -471,8 +473,11 @@ def get_interaction_dicts(challenge_name):
     
     file = 'events_processed.csv'
     df = pd.read_csv(file) 
-    problem_names = ["w1p1", "w1p2", "w2p1", "w2p2", "w3p1n", "w3p2", "w4p1", "w4p2", "w5p1", "w5p2"]
-
+    if challenge_name == "challenge-newbies-2018":
+        problem_names = ["w1p1", "w1p2", "w2p1", "w2p2", "w3p1n", "w3p2", "w4p1", "w4p2", "w5p1", "w5p2"]
+    elif challenge_name == "challenge-beginners-2018":
+        problem_names = ["w1p1", "w1p2", "w2p1", "w2p2", "w3p1", "w3p2", "w4p1", "w4p2", "w5p1", "w5p2"]
+        
     problem_sequence_dict = {}
     interaction_sequence_dict = {}
     default_sequences = get_default_sequences(challenge_name)
@@ -543,3 +548,19 @@ def get_interaction_dicts(challenge_name):
                 interaction_sequence_dict[student].extend(default_sequences[i])  
                 
     return problem_sequence_dict, interaction_sequence_dict
+
+def main():
+    # Load the file 
+    file = 'events_processed.csv'
+
+    # Specify the challenge name 
+    challenge_name = "challenge-beginners-2018"
+
+    # Read the file into a dataframe 
+    df = pd.read_csv(file)
+
+    filtered_df = df[(df.challenge_name == challenge_name)]
+    print(filtered_df["problem_name"].unique())
+
+
+main()

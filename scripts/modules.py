@@ -20,14 +20,16 @@ from dropout import *
     final problems in a module, then this problem uses all slides preceding the paired problems
     (i.e. it excludes the first of the paired problems)
 """
-def module_prediction():
+def module_prediction(challenge_name):
 
     file = 'events_processed.csv'
-    challenge_name = "challenge-newbies-2018"
     df = pd.read_csv(file) 
 
     # Module names 
-    problem_names = ["w1p1", "w1p2", "w2p1", "w2p2", "w3p1n", "w3p2", "w4p1", "w4p2", "w5p1", "w5p2"]
+    if challenge_name == "challenge-newbies-2018":
+        problem_names = ["w1p1", "w1p2", "w2p1", "w2p2", "w3p1n", "w3p2", "w4p1", "w4p2", "w5p1", "w5p2"]
+    elif challenge_name == "challenge-beginners-2018":
+        problem_names = ["w1p1", "w1p2", "w2p1", "w2p2", "w3p1", "w3p2", "w4p1", "w4p2", "w5p1", "w5p2"]
  
     # Data to be converted into a dataframe 
     data = []
@@ -131,4 +133,5 @@ def module_prediction():
         plt.show()
         print("\n")
 
-module_prediction()
+challenge_name = "challenge-beginners-2018"
+module_prediction(challenge_name)

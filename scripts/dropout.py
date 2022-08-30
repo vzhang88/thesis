@@ -1,13 +1,11 @@
-
+from slide_completion import * 
 """
     Determines the dropout class for all students in the challenge using their problem sequences
     and creates a new dataframe that contains the dropout class as well as the whole interaction sequence
     for all students
 """
-def get_dropout_df():
-     
-    challenge_name = "challenge-newbies-2018"
-
+def get_dropout_df(challenge_name):
+    
     # Retrieve the problem sequences and interaction sequences for all students
     problem_sequence_dict, interaction_sequence_dict = get_interaction_dicts(challenge_name)
 
@@ -61,7 +59,7 @@ def get_dropout_df():
     df = pd.DataFrame(data)
 
     # Save the dataframe 
-    df.to_csv("dropout_df.csv")
+    df.to_csv("dropout_df_{}.csv".format(challenge_name))
 
 
 
@@ -120,3 +118,7 @@ def get_dropout_module(sequence):
         return -1
     else:
         return dropout_index/2 + 1
+
+
+challenge_name = "challenge-beginners-2018"
+# get_dropout_df(challenge_name)

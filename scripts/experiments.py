@@ -9,8 +9,6 @@ from general_functions import *
 from sklearn.dummy import DummyClassifier
 from dropout import * 
 
- 
-
 # Uses the entire sequence - gets 84% accuracy - quite good!
 def slide_value_prediction():
     df = pd.read_csv('all_results_grades.csv')

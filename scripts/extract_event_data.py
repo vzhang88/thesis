@@ -11,7 +11,7 @@ import csv
 """
 def preprocess():
 
-    with open('events_processed_20000.csv', 'w',  newline='') as f:
+    with open('events.csv', 'w',  newline='') as f:
 
         # Create a writer to write to the new CSV file 
         writer = csv.writer(f)
