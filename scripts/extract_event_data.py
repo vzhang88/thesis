@@ -23,7 +23,7 @@ def preprocess():
         df = pd.read_csv('events.csv')
         
         for row in df.itertuples():
-
+ 
             # Extract the event data 
             event_data = row.event_data
             second_half = event_data.split("learn\/")[1]

@@ -178,6 +178,9 @@ def get_student_dict(df, num_slides, problem_slides):
     # Iterate through the rows of the dataframe
     for row in df.itertuples():
 
+        if row.event_name == "slide_steps_complete":
+            print("REACH")
+
         # We have encountered a new student
         if row.user_id != student:
 
@@ -197,6 +200,7 @@ def get_student_dict(df, num_slides, problem_slides):
         # We have encountered a slide steps complete event for an interactive slide 
         if row.event_name == "slide_steps_complete" and row.slide_no not in problem_slides: 
             student_dict[student][row.slide_no] = 1
+            print("REACH") # this is never reached somehow 
 
         # We have encountered a problem failed event for a problem slide 
         elif row.event_name == "problem_failed" and row.slide_no in problem_slides:
@@ -209,7 +213,7 @@ def get_student_dict(df, num_slides, problem_slides):
         # We have encountered a problem passed event for a problem slide
         elif row.event_name == "problem_passed" and row.slide_no in problem_slides:
             student_dict[student][row.slide_no] = "P" 
-
+        
     return student_dict
 
 
@@ -475,7 +479,7 @@ def get_interaction_dicts(challenge_name):
     df = pd.read_csv(file) 
     if challenge_name == "challenge-newbies-2018":
         problem_names = ["w1p1", "w1p2", "w2p1", "w2p2", "w3p1n", "w3p2", "w4p1", "w4p2", "w5p1", "w5p2"]
-    elif challenge_name == "challenge-beginners-2018":
+    else:
         problem_names = ["w1p1", "w1p2", "w2p1", "w2p2", "w3p1", "w3p2", "w4p1", "w4p2", "w5p1", "w5p2"]
         
     problem_sequence_dict = {}
@@ -549,18 +553,4 @@ def get_interaction_dicts(challenge_name):
                 
     return problem_sequence_dict, interaction_sequence_dict
 
-def main():
-    # Load the file 
-    file = 'events_processed.csv'
 
-    # Specify the challenge name 
-    challenge_name = "challenge-beginners-2018"
-
-    # Read the file into a dataframe 
-    df = pd.read_csv(file)
-
-    filtered_df = df[(df.challenge_name == challenge_name)]
-    print(filtered_df["problem_name"].unique())
-
-
-main()

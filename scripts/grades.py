@@ -184,7 +184,3 @@ def grade_prediction():
     print(base_score)
     print(ave_score)
 
-# get_scores()
-# get_grades()
-# get_grade_distribution()
-# grade_prediction()

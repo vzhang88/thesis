@@ -62,10 +62,6 @@ def get_dropout_df(challenge_name):
     df.to_csv("dropout_df_{}.csv".format(challenge_name))
 
 
-
-
-
-
 """
     This function identifies whether the student drops out of the course based
     on their interaction sequence. The function does this by counting the number
@@ -120,5 +116,3 @@ def get_dropout_module(sequence):
         return dropout_index/2 + 1
 
 
-challenge_name = "challenge-beginners-2018"
-# get_dropout_df(challenge_name)
