@@ -155,11 +155,12 @@ def get_results_dicts(student_dict, problem_slides):
         df: A filetered dataframe representing all records for a module in a particular specific challenge 
         num_slides: Number of slides in the module
         problem_slides: A list of indices representing problem slides in the module 
+        challenge_name: Name of the challenge
 
     Returns: 
         student_dict: A dictionary containing student IDs as keys, and their interaction sequences for the module as values.
 """
-def get_student_dict(df, num_slides, problem_slides):
+def get_student_dict(df, num_slides, problem_slides, challenge_name):
     student_dict = {}
 
     # The ID of the first student 
@@ -177,9 +178,6 @@ def get_student_dict(df, num_slides, problem_slides):
 
     # Iterate through the rows of the dataframe
     for row in df.itertuples():
-
-        if row.event_name == "slide_steps_complete":
-            print("REACH")
 
         # We have encountered a new student
         if row.user_id != student:
@@ -200,7 +198,9 @@ def get_student_dict(df, num_slides, problem_slides):
         # We have encountered a slide steps complete event for an interactive slide 
         if row.event_name == "slide_steps_complete" and row.slide_no not in problem_slides: 
             student_dict[student][row.slide_no] = 1
-            print("REACH") # this is never reached somehow 
+        
+        elif row.event_name == "run_inline" and challenge_name != "challenge-newbies-2018":
+            student_dict[student][row.slide_no] = 1
 
         # We have encountered a problem failed event for a problem slide 
         elif row.event_name == "problem_failed" and row.slide_no in problem_slides:

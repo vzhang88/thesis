@@ -25,21 +25,13 @@ from dropout import *
     and 
 
     MISTAKE: DON'T WRITE CODE IN THE OTHER FILES 
-
-
 """
-
 def test(challenge_name):
-
     file = 'events_processed.csv'
     df = pd.read_csv(file)
 
-    df_filtered = df[(df.challenge_name == challenge_name) & (df.problem_name == "w1p1") & (df.event_name == "slide_steps_complete")] 
-    print(len(df_filtered))
-
-    first_1000 = df.head(1000)
-    first_1000.to_csv("first_1000_v2.csv")
-
+    df_filtered = df[(df.challenge_name == challenge_name)] 
+    print(df_filtered["event_name"].unique())
     return
 
 
@@ -79,7 +71,7 @@ def module_prediction(challenge_name):
         df = df.sort_values(by=['user_id'])  
         
         # Retrieve the interaction sequences of each student in the module 
-        temp_dict = get_student_dict(df, num_slides, problem_slides)
+        temp_dict = get_student_dict(df, num_slides, problem_slides, challenge_name)
 
         # Last problem slide 
         last_idx = problem_slides[-1]
@@ -128,9 +120,17 @@ def module_prediction(challenge_name):
             data.append(row)
 
         df = pd.DataFrame(data)
-        df.to_csv("{}-{}.csv".format(challenge_name, problem_name))
+        rename_dict = {}
+        columns = list(df.columns)
+        for i in range(len(columns) + 1):
+            if i != len(columns):
+                col = columns[i]
+                rename_dict[col] = "slide" + str(col)
+            else:
+                rename_dict[col] = "Outcome"
 
-        break
+        df.rename(columns=rename_dict, inplace=True)
+        df.to_csv("{}-{}.csv".format(challenge_name, problem_name))
 
         # dummy_clf = DummyClassifier(strategy="most_frequent")
         # lreg_clf = LogisticRegression(random_state=0, max_iter=1000, multi_class="multinomial") 
@@ -165,6 +165,12 @@ def module_prediction(challenge_name):
         # plt.title("Slide importance distribution in predicting dropout")
         # plt.show()
         # print("\n")
+
+
+# IT DOESNT WORK FOR CHALLENGE BEGINNERS 2018 
+# IT WORKS FOR CHALLENGE NEWBIES 2018 
+
+
 
 challenge_name = "challenge-newbies-2018"
 module_prediction(challenge_name)
