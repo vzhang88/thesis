@@ -130,7 +130,7 @@ def module_prediction(challenge_name):
                 rename_dict[col] = "Outcome"
 
         df.rename(columns=rename_dict, inplace=True)
-        df.to_csv("{}-{}.csv".format(challenge_name, problem_name))
+        df.to_csv("{}-{}.csv".format(challenge_name, problem_name), index=False)
 
         # dummy_clf = DummyClassifier(strategy="most_frequent")
         # lreg_clf = LogisticRegression(random_state=0, max_iter=1000, multi_class="multinomial") 
@@ -172,7 +172,7 @@ def module_prediction(challenge_name):
 
 
 
-challenge_name = "challenge-newbies-2018"
+challenge_name = "challenge-beginners-blockly-2018"
 module_prediction(challenge_name)
 
 
