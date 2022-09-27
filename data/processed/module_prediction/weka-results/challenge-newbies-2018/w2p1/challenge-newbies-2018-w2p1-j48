@@ -1,0 +1,64 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.trees.J48 -C 0.25 -M 2
+Relation:     challenge-newbies-2018-w2p1
+Instances:    2526
+Attributes:   9
+              slide0
+              slide1
+              slide2
+              slide3
+              slide4
+              slide5
+              slide6
+              slide7
+              Outcome
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+J48 pruned tree
+------------------
+
+slide4 = Pass: Pass (1794.0/254.0)
+slide4 = No submission: No submission (591.0/54.0)
+slide4 = Fail
+|   slide6 = No attempt: No submission (112.0/38.0)
+|   slide6 = Completed
+|   |   slide2 = No attempt: Fail (3.0/1.0)
+|   |   slide2 = Completed: Pass (26.0/13.0)
+
+Number of Leaves  : 	5
+
+Size of the tree : 	8
+
+
+Time taken to build model: 0 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances        2159               85.4711 %
+Incorrectly Classified Instances       367               14.5289 %
+Kappa statistic                          0.6762
+Mean absolute error                      0.1651
+Root mean squared error                  0.2883
+Relative absolute error                 51.2953 %
+Root relative squared error             71.9017 %
+Total Number of Instances             2526     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.738    0.060    0.858      0.738    0.794      0.708    0.835     0.776     No submission
+                 0.958    0.291    0.854      0.958    0.903      0.711    0.826     0.837     Pass
+                 0.000    0.000    0.000      0.000    0.000      -0.004   0.562     0.058     Fail
+Weighted Avg.    0.855    0.206    0.828      0.855    0.838      0.687    0.821     0.792     
+
+=== Confusion Matrix ===
+
+    a    b    c   <-- classified as
+  612  216    1 |    a = No submission
+   68 1547    0 |    b = Pass
+   33   49    0 |    c = Fail
+

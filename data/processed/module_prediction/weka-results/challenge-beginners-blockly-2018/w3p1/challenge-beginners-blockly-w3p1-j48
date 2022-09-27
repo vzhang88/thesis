@@ -1,0 +1,82 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.trees.J48 -C 0.25 -M 2
+Relation:     challenge-beginners-blockly-2018-w3p1
+Instances:    992
+Attributes:   16
+              slide0
+              slide1
+              slide2
+              slide3
+              slide4
+              slide5
+              slide6
+              slide7
+              slide8
+              slide9
+              slide10
+              slide11
+              slide12
+              slide13
+              slide14
+              Outcome
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+J48 pruned tree
+------------------
+
+slide9 = Pass
+|   slide12 = Pass: Pass (519.0/22.0)
+|   slide12 = No submission
+|   |   slide13 = No attempt
+|   |   |   slide4 = No attempt: Pass (106.0/39.0)
+|   |   |   slide4 = Completed: No submission (17.0/4.0)
+|   |   slide13 = Completed: Pass (8.0/1.0)
+|   slide12 = Fail
+|   |   slide13 = No attempt: No submission (15.0/6.0)
+|   |   slide13 = Completed: Pass (8.0/1.0)
+slide9 = No submission
+|   slide12 = Pass: Pass (6.0)
+|   slide12 = No submission: No submission (279.0/7.0)
+|   slide12 = Fail: Pass (3.0/1.0)
+slide9 = Fail
+|   slide12 = Pass: Pass (7.0)
+|   slide12 = No submission: No submission (21.0/3.0)
+|   slide12 = Fail: Pass (3.0/1.0)
+
+Number of Leaves  : 	12
+
+Size of the tree : 	19
+
+
+Time taken to build model: 0 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances         902               90.9274 %
+Incorrectly Classified Instances        90                9.0726 %
+Kappa statistic                          0.8031
+Mean absolute error                      0.091 
+Root mean squared error                  0.2184
+Relative absolute error                 28.7227 %
+Root relative squared error             54.9033 %
+Total Number of Instances              992     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.969    0.185    0.895      0.969    0.930      0.810    0.921     0.902     Pass
+                 0.821    0.032    0.939      0.821    0.876      0.813    0.928     0.909     No submission
+                 0.000    0.000    ?          0.000    ?          ?        0.134     0.004     Fail
+Weighted Avg.    0.909    0.127    ?          0.909    ?          ?        0.921     0.901     
+
+=== Confusion Matrix ===
+
+   a   b   c   <-- classified as
+ 595  19   0 |   a = Pass
+  67 307   0 |   b = No submission
+   3   1   0 |   c = Fail
+

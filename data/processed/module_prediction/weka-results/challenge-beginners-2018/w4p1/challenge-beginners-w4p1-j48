@@ -1,0 +1,65 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.trees.J48 -C 0.25 -M 2
+Relation:     challenge-beginners-2018-w4p1
+Instances:    5082
+Attributes:   14
+              slide0
+              slide1
+              slide2
+              slide3
+              slide4
+              slide5
+              slide6
+              slide7
+              slide8
+              slide9
+              slide10
+              slide11
+              slide12
+              Outcome
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+J48 pruned tree
+------------------
+
+slide4 = Pass: Pass (3969.0/1033.0)
+slide4 = No submission: No submission (1063.0/105.0)
+slide4 = Fail: No submission (50.0/18.0)
+
+Number of Leaves  : 	3
+
+Size of the tree : 	4
+
+
+Time taken to build model: 0.06 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances        3918               77.0956 %
+Incorrectly Classified Instances      1164               22.9044 %
+Kappa statistic                          0.494 
+Mean absolute error                      0.2381
+Root mean squared error                  0.3455
+Relative absolute error                 70.4553 %
+Root relative squared error             84.0753 %
+Total Number of Instances             5082     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.968    0.509    0.738      0.968    0.838      0.547    0.719     0.724     Pass
+                 0.524    0.038    0.890      0.524    0.660      0.569    0.733     0.693     No submission
+                 0.000    0.000    0.000      0.000    0.000      -0.004   0.564     0.046     Fail
+Weighted Avg.    0.771    0.318    0.768      0.771    0.743      0.536    0.719     0.689     
+
+=== Confusion Matrix ===
+
+    a    b    c   <-- classified as
+ 2938   97    0 |    a = Pass
+  888  980    2 |    b = No submission
+  153   24    0 |    c = Fail
+

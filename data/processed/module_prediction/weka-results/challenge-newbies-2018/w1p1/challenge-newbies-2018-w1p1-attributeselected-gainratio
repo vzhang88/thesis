@@ -1,0 +1,99 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.meta.AttributeSelectedClassifier -E "weka.attributeSelection.GainRatioAttributeEval " -S "weka.attributeSelection.Ranker -T -1.7976931348623157E308 -N 3" -W weka.classifiers.trees.J48 -- -C 0.25 -M 2
+Relation:     challenge-newbies-2018-w1p1
+Instances:    4654
+Attributes:   12
+              slide0
+              slide1
+              slide2
+              slide3
+              slide4
+              slide5
+              slide6
+              slide7
+              slide8
+              slide9
+              slide10
+              Outcome
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+AttributeSelectedClassifier:
+
+
+
+=== Attribute Selection on all input data ===
+
+Search Method:
+	Attribute ranking.
+
+Attribute Evaluator (supervised, Class (nominal): 12 Outcome):
+	Gain Ratio feature evaluator
+
+Ranked attributes:
+ 0.451   6 slide5
+ 0.345   5 slide4
+ 0.178  11 slide10
+
+Selected attributes: 6,5,11 : 3
+
+
+Header of reduced data:
+@relation 'challenge-newbies-2018-w1p1-weka.filters.unsupervised.attribute.Remove-V-R6,5,11-12'
+
+@attribute slide5 {Pass,'No submission',Fail}
+@attribute slide4 {Pass,'No submission',Fail}
+@attribute slide10 {Completed,'No attempt'}
+@attribute Outcome {Pass,Fail,'No submission'}
+
+@data
+
+
+Classifier Model
+J48 pruned tree
+------------------
+
+slide5 = Pass: Pass (3520.0/570.0)
+slide5 = No submission
+|   slide10 = Completed: Pass (27.0/6.0)
+|   slide10 = No attempt: No submission (960.0/22.0)
+slide5 = Fail
+|   slide10 = Completed: Pass (39.0/14.0)
+|   slide10 = No attempt: No submission (108.0/33.0)
+
+Number of Leaves  : 	5
+
+Size of the tree : 	8
+
+
+Time taken to build model: 0.01 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances        4009               86.141  %
+Incorrectly Classified Instances       645               13.859  %
+Kappa statistic                          0.6762
+Mean absolute error                      0.1603
+Root mean squared error                  0.2834
+Relative absolute error                 50.0295 %
+Root relative squared error             70.8106 %
+Total Number of Instances             4654     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.989    0.363    0.835      0.989    0.906      0.709    0.807     0.826     Pass
+                 0.000    0.000    ?          0.000    ?          ?        0.580     0.060     Fail
+                 0.710    0.017    0.949      0.710    0.812      0.760    0.840     0.814     No submission
+Weighted Avg.    0.861    0.242    ?          0.861    ?          ?        0.808     0.790     
+
+=== Confusion Matrix ===
+
+    a    b    c   <-- classified as
+ 2996    0   34 |    a = Pass
+  177    0   21 |    b = Fail
+  413    0 1013 |    c = No submission
+

@@ -1,0 +1,58 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.rules.ZeroR 
+Relation:     challenge-beginners-2018-w3p2
+Instances:    5238
+Attributes:   17
+              slide0
+              slide1
+              slide2
+              slide3
+              slide4
+              slide5
+              slide6
+              slide7
+              slide8
+              slide9
+              slide10
+              slide11
+              slide12
+              slide13
+              slide14
+              slide15
+              Outcome
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+ZeroR predicts class value: Pass
+
+Time taken to build model: 0 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances        4069               77.6823 %
+Incorrectly Classified Instances      1169               22.3177 %
+Kappa statistic                          0     
+Mean absolute error                      0.2372
+Root mean squared error                  0.3443
+Relative absolute error                100      %
+Root relative squared error            100      %
+Total Number of Instances             5238     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 1.000    1.000    0.777      1.000    0.874      ?        0.500     0.777     Pass
+                 0.000    0.000    ?          0.000    ?          ?        0.498     0.201     No submission
+                 0.000    0.000    ?          0.000    ?          ?        0.489     0.021     Fail
+Weighted Avg.    0.777    0.777    ?          0.777    ?          ?        0.499     0.644     
+
+=== Confusion Matrix ===
+
+    a    b    c   <-- classified as
+ 4069    0    0 |    a = Pass
+ 1054    0    0 |    b = No submission
+  115    0    0 |    c = Fail
+

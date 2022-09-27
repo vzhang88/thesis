@@ -1,0 +1,87 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.trees.J48 -C 0.25 -M 2
+Relation:     challenge-beginners-blockly-2018-w1p1
+Instances:    3372
+Attributes:   17
+              slide0
+              slide1
+              slide2
+              slide3
+              slide4
+              slide5
+              slide6
+              slide7
+              slide8
+              slide9
+              slide10
+              slide11
+              slide12
+              slide13
+              slide14
+              slide15
+              Outcome
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+J48 pruned tree
+------------------
+
+slide13 = Pass
+|   slide9 = Pass: Pass (1556.0/116.0)
+|   slide9 = No submission: Pass (18.0/3.0)
+|   slide9 = Fail
+|   |   slide2 = No attempt
+|   |   |   slide6 = No attempt: No submission (11.0/3.0)
+|   |   |   slide6 = Completed: Pass (3.0)
+|   |   slide2 = Completed
+|   |   |   slide6 = No attempt: Fail (3.0)
+|   |   |   slide6 = Completed: Pass (3.0)
+slide13 = No submission
+|   slide15 = No attempt: No submission (1676.0/15.0)
+|   slide15 = Completed
+|   |   slide9 = Pass: Pass (6.0/1.0)
+|   |   slide9 = No submission: No submission (9.0)
+|   |   slide9 = Fail: No submission (1.0)
+slide13 = Fail
+|   slide14 = No attempt: No submission (71.0/17.0)
+|   slide14 = Completed
+|   |   slide9 = Pass: Pass (13.0/4.0)
+|   |   slide9 = No submission: Pass (0.0)
+|   |   slide9 = Fail: Fail (2.0)
+
+Number of Leaves  : 	14
+
+Size of the tree : 	23
+
+
+Time taken to build model: 0.05 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances        3199               94.8695 %
+Incorrectly Classified Instances       173                5.1305 %
+Kappa statistic                          0.899 
+Mean absolute error                      0.0608
+Root mean squared error                  0.178 
+Relative absolute error                 17.7318 %
+Root relative squared error             43.0064 %
+Total Number of Instances             3372     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.983    0.070    0.918      0.983    0.950      0.909    0.957     0.907     Pass
+                 0.953    0.026    0.977      0.953    0.965      0.925    0.966     0.970     No submission
+                 0.031    0.001    0.500      0.031    0.059      0.121    0.682     0.075     Fail
+Weighted Avg.    0.949    0.045    0.942      0.949    0.941      0.903    0.957     0.925     
+
+=== Confusion Matrix ===
+
+    a    b    c   <-- classified as
+ 1470   24    1 |    a = Pass
+   85 1727    1 |    b = No submission
+   46   16    2 |    c = Fail
+

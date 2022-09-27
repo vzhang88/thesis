@@ -1,0 +1,102 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.trees.J48 -C 0.25 -M 2
+Relation:     challenge-beginners-2018-w1p1
+Instances:    8547
+Attributes:   21
+              slide0
+              slide1
+              slide2
+              slide3
+              slide4
+              slide5
+              slide6
+              slide7
+              slide8
+              slide9
+              slide10
+              slide11
+              slide12
+              slide13
+              slide14
+              slide15
+              slide16
+              slide17
+              slide18
+              slide19
+              Outcome
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+J48 pruned tree
+------------------
+
+slide16 = Pass: Pass (6936.0/260.0)
+slide16 = No submission
+|   slide19 = No attempt: No submission (1447.0/52.0)
+|   slide19 = Completed
+|   |   slide12 = Pass: Pass (17.0/2.0)
+|   |   slide12 = No submission: No submission (19.0/1.0)
+|   |   slide12 = Fail: Pass (5.0/2.0)
+slide16 = Fail
+|   slide19 = No attempt
+|   |   slide9 = Pass
+|   |   |   slide12 = Pass: No submission (57.0/22.0)
+|   |   |   slide12 = No submission
+|   |   |   |   slide1 = No attempt: No submission (7.0/1.0)
+|   |   |   |   slide1 = Completed: Fail (3.0/1.0)
+|   |   |   slide12 = Fail
+|   |   |   |   slide6 = No attempt: Fail (14.0/6.0)
+|   |   |   |   slide6 = Completed
+|   |   |   |   |   slide17 = No attempt
+|   |   |   |   |   |   slide2 = No attempt: No submission (4.0)
+|   |   |   |   |   |   slide2 = Completed
+|   |   |   |   |   |   |   slide4 = No attempt: Pass (2.0)
+|   |   |   |   |   |   |   slide4 = Completed: No submission (2.0)
+|   |   |   |   |   slide17 = Completed: Fail (3.0/1.0)
+|   |   slide9 = No submission: No submission (5.0)
+|   |   slide9 = Fail
+|   |   |   slide5 = Pass: Pass (4.0/1.0)
+|   |   |   slide5 = No submission: Pass (0.0)
+|   |   |   slide5 = Fail: No submission (3.0/1.0)
+|   slide19 = Completed
+|   |   slide18 = No attempt: Pass (7.0/3.0)
+|   |   slide18 = Completed
+|   |   |   slide4 = No attempt: Pass (4.0/2.0)
+|   |   |   slide4 = Completed: Fail (8.0/2.0)
+
+Number of Leaves  : 	20
+
+Size of the tree : 	34
+
+
+Time taken to build model: 0.02 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances        8151               95.3668 %
+Incorrectly Classified Instances       396                4.6332 %
+Kappa statistic                          0.8545
+Mean absolute error                      0.0545
+Root mean squared error                  0.1682
+Relative absolute error                 24.413  %
+Root relative squared error             50.3374 %
+Total Number of Instances             8547     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.988    0.159    0.960      0.988    0.974      0.868    0.915     0.957     Pass
+                 0.879    0.014    0.937      0.879    0.907      0.886    0.929     0.876     No submission
+                 0.009    0.002    0.063      0.009    0.015      0.018    0.552     0.050     Fail
+Weighted Avg.    0.954    0.128    0.943      0.954    0.948      0.860    0.913     0.929     
+
+=== Confusion Matrix ===
+
+    a    b    c   <-- classified as
+ 6689   72    8 |    a = Pass
+  194 1461    7 |    b = No submission
+   88   27    1 |    c = Fail
+

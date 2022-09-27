@@ -1,0 +1,108 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.meta.AttributeSelectedClassifier -E "weka.attributeSelection.CfsSubsetEval -P 1 -E 1" -S "weka.attributeSelection.BestFirst -D 1 -N 5" -W weka.classifiers.trees.J48 -- -C 0.25 -M 2
+Relation:     challenge-beginners-2018-w2p2
+Instances:    6009
+Attributes:   16
+              slide0
+              slide1
+              slide2
+              slide3
+              slide4
+              slide5
+              slide6
+              slide7
+              slide8
+              slide9
+              slide10
+              slide11
+              slide12
+              slide13
+              slide14
+              Outcome
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+AttributeSelectedClassifier:
+
+
+
+=== Attribute Selection on all input data ===
+
+Search Method:
+	Best first.
+	Start set: no attributes
+	Search direction: forward
+	Stale search after 5 node expansions
+	Total number of subsets evaluated: 90
+	Merit of best subset found:    0.525
+
+Attribute Subset Evaluator (supervised, Class (nominal): 16 Outcome):
+	CFS Subset Evaluator
+	Including locally predictive attributes
+
+Selected attributes: 8,10,12,15 : 4
+                     slide7
+                     slide9
+                     slide11
+                     slide14
+
+
+Header of reduced data:
+@relation 'challenge-beginners-2018-w2p2-weka.filters.unsupervised.attribute.Remove-V-R8,10,12,15-16'
+
+@attribute slide7 {Pass,'No submission',Fail}
+@attribute slide9 {'No attempt',Completed}
+@attribute slide11 {Pass,'No submission',Fail}
+@attribute slide14 {'No attempt',Completed}
+@attribute Outcome {Pass,'No submission',Fail}
+
+@data
+
+
+Classifier Model
+J48 pruned tree
+------------------
+
+slide11 = Pass: Pass (5010.0/314.0)
+slide11 = No submission: No submission (931.0/79.0)
+slide11 = Fail
+|   slide7 = Pass: No submission (48.0/16.0)
+|   slide7 = No submission: No submission (5.0/1.0)
+|   slide7 = Fail: Fail (15.0/5.0)
+
+Number of Leaves  : 	5
+
+Size of the tree : 	7
+
+
+Time taken to build model: 0.01 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances        5591               93.0438 %
+Incorrectly Classified Instances       418                6.9562 %
+Kappa statistic                          0.7718
+Mean absolute error                      0.0861
+Root mean squared error                  0.2076
+Relative absolute error                 39.1334 %
+Root relative squared error             62.625  %
+Total Number of Instances             6009     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.982    0.256    0.937      0.982    0.959      0.786    0.858     0.933     Pass
+                 0.775    0.021    0.898      0.775    0.832      0.799    0.873     0.761     No submission
+                 0.064    0.001    0.625      0.064    0.116      0.197    0.557     0.063     Fail
+Weighted Avg.    0.930    0.208    0.926      0.930    0.924      0.780    0.857     0.888     
+
+=== Confusion Matrix ===
+
+    a    b    c   <-- classified as
+ 4696   87    0 |    a = Pass
+  255  890    3 |    b = No submission
+   59   14    5 |    c = Fail
+

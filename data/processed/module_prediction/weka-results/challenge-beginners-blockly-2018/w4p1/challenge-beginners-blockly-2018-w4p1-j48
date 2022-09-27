@@ -1,0 +1,68 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.trees.J48 -C 0.25 -M 2
+Relation:     challenge-beginners-blockly-2018-w4p1
+Instances:    842
+Attributes:   14
+              slide0
+              slide1
+              slide2
+              slide3
+              slide4
+              slide5
+              slide6
+              slide7
+              slide8
+              slide9
+              slide10
+              slide11
+              slide12
+              Outcome
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+J48 pruned tree
+------------------
+
+slide4 = No submission: No submission (353.0/14.0)
+slide4 = Pass
+|   slide2 = No submission: No submission (16.0/7.0)
+|   slide2 = Fail: No submission (6.0/2.0)
+|   slide2 = Pass: Pass (449.0/217.0)
+slide4 = Fail: No submission (18.0)
+
+Number of Leaves  : 	5
+
+Size of the tree : 	7
+
+
+Time taken to build model: 0.01 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances         599               71.1401 %
+Incorrectly Classified Instances       243               28.8599 %
+Kappa statistic                          0.482 
+Mean absolute error                      0.2465
+Root mean squared error                  0.3529
+Relative absolute error                 69.7869 %
+Root relative squared error             84.0207 %
+Total Number of Instances              842     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.714    0.083    0.932      0.714    0.808      0.615    0.817     0.884     No submission
+                 0.939    0.362    0.516      0.939    0.666      0.525    0.791     0.505     Pass
+                 0.000    0.000    ?          0.000    ?          ?        0.688     0.152     Fail
+Weighted Avg.    0.711    0.156    ?          0.711    ?          ?        0.797     0.704     
+
+=== Confusion Matrix ===
+
+   a   b   c   <-- classified as
+ 369 148   0 |   a = No submission
+  15 230   0 |   b = Pass
+  12  68   0 |   c = Fail
+

@@ -1,0 +1,105 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.meta.AttributeSelectedClassifier -E "weka.attributeSelection.GainRatioAttributeEval " -S "weka.attributeSelection.Ranker -T -1.7976931348623157E308 -N 3" -W weka.classifiers.trees.J48 -- -C 0.25 -M 2
+Relation:     challenge-beginners-blockly-2018-w3p1
+Instances:    992
+Attributes:   16
+              slide0
+              slide1
+              slide2
+              slide3
+              slide4
+              slide5
+              slide6
+              slide7
+              slide8
+              slide9
+              slide10
+              slide11
+              slide12
+              slide13
+              slide14
+              Outcome
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+AttributeSelectedClassifier:
+
+
+
+=== Attribute Selection on all input data ===
+
+Search Method:
+	Attribute ranking.
+
+Attribute Evaluator (supervised, Class (nominal): 16 Outcome):
+	Gain Ratio feature evaluator
+
+Ranked attributes:
+ 0.453  10 slide9
+ 0.425  13 slide12
+ 0.363   4 slide3
+
+Selected attributes: 10,13,4 : 3
+
+
+Header of reduced data:
+@relation 'challenge-beginners-blockly-2018-w3p1-weka.filters.unsupervised.attribute.Remove-V-R10,13,4,16'
+
+@attribute slide9 {Pass,'No submission',Fail}
+@attribute slide12 {Pass,'No submission',Fail}
+@attribute slide3 {Pass,'No submission',Fail}
+@attribute Outcome {Pass,'No submission',Fail}
+
+@data
+
+
+Classifier Model
+J48 pruned tree
+------------------
+
+slide9 = Pass: Pass (673.0/85.0)
+slide9 = No submission
+|   slide12 = Pass: Pass (6.0)
+|   slide12 = No submission: No submission (279.0/7.0)
+|   slide12 = Fail: Pass (3.0/1.0)
+slide9 = Fail
+|   slide12 = Pass: Pass (7.0)
+|   slide12 = No submission: No submission (21.0/3.0)
+|   slide12 = Fail: Pass (3.0/1.0)
+
+Number of Leaves  : 	7
+
+Size of the tree : 	10
+
+
+Time taken to build model: 0 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances         895               90.2218 %
+Incorrectly Classified Instances        97                9.7782 %
+Kappa statistic                          0.7847
+Mean absolute error                      0.1159
+Root mean squared error                  0.2452
+Relative absolute error                 36.5725 %
+Root relative squared error             61.6329 %
+Total Number of Instances              992     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.985    0.230    0.874      0.985    0.926      0.798    0.863     0.855     Pass
+                 0.775    0.016    0.967      0.775    0.861      0.801    0.870     0.857     No submission
+                 0.000    0.000    ?          0.000    ?          ?        0.073     0.004     Fail
+Weighted Avg.    0.902    0.149    ?          0.902    ?          ?        0.862     0.852     
+
+=== Confusion Matrix ===
+
+   a   b   c   <-- classified as
+ 605   9   0 |   a = Pass
+  84 290   0 |   b = No submission
+   3   1   0 |   c = Fail
+

@@ -1,0 +1,68 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.trees.J48 -C 0.25 -M 2
+Relation:     challenge-intermediate-2018-w5p1
+Instances:    2110
+Attributes:   15
+              slide0
+              slide1
+              slide2
+              slide3
+              slide4
+              slide5
+              slide6
+              slide7
+              slide8
+              slide9
+              slide10
+              slide11
+              slide12
+              slide13
+              Outcome
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+J48 pruned tree
+------------------
+
+slide10 = Pass: Pass (1510.0/47.0)
+slide10 = No submission
+|   slide11 = No attempt: No submission (556.0/24.0)
+|   slide11 = Completed: Pass (25.0/10.0)
+slide10 = Fail: No submission (19.0/9.0)
+
+Number of Leaves  : 	4
+
+Size of the tree : 	6
+
+
+Time taken to build model: 0 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances        2010               95.2607 %
+Incorrectly Classified Instances       100                4.7393 %
+Kappa statistic                          0.8831
+Mean absolute error                      0.052 
+Root mean squared error                  0.1648
+Relative absolute error                 18.9896 %
+Root relative squared error             44.5623 %
+Total Number of Instances             2110     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.905    0.027    0.929      0.905    0.917      0.885    0.938     0.886     No submission
+                 0.976    0.094    0.963      0.976    0.969      0.891    0.940     0.956     Pass
+                 0.000    0.001    0.000      0.000    0.000      -0.002   0.603     0.106     Fail
+Weighted Avg.    0.953    0.075    0.950      0.953    0.951      0.886    0.939     0.933     
+
+=== Confusion Matrix ===
+
+    a    b    c   <-- classified as
+  540   55    2 |    a = No submission
+   36 1470    0 |    b = Pass
+    5    2    0 |    c = Fail
+

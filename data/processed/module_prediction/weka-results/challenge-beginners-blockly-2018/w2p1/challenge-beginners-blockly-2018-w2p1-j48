@@ -1,0 +1,70 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.trees.J48 -C 0.25 -M 2
+Relation:     challenge-beginners-blockly-2018-w2p1
+Instances:    1368
+Attributes:   17
+              slide0
+              slide1
+              slide2
+              slide3
+              slide4
+              slide5
+              slide6
+              slide7
+              slide8
+              slide9
+              slide10
+              slide11
+              slide12
+              slide13
+              slide14
+              slide15
+              Outcome
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+J48 pruned tree
+------------------
+
+slide11 = Pass: Pass (967.0/79.0)
+slide11 = No submission: No submission (379.0/11.0)
+slide11 = Fail
+|   slide14 = No attempt: No submission (20.0/4.0)
+|   slide14 = Completed: Fail (2.0)
+
+Number of Leaves  : 	4
+
+Size of the tree : 	6
+
+
+Time taken to build model: 0 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances        1270               92.8363 %
+Incorrectly Classified Instances        98                7.1637 %
+Kappa statistic                          0.8377
+Mean absolute error                      0.0876
+Root mean squared error                  0.2112
+Relative absolute error                 28.1958 %
+Root relative squared error             53.622  %
+Total Number of Instances             1368     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.989    0.172    0.916      0.989    0.951      0.853    0.895     0.900     Pass
+                 0.870    0.018    0.957      0.870    0.912      0.875    0.912     0.885     No submission
+                 0.000    0.000    ?          0.000    ?          ?        0.500     0.045     Fail
+Weighted Avg.    0.928    0.119    ?          0.928    ?          ?        0.891     0.876     
+
+=== Confusion Matrix ===
+
+   a   b   c   <-- classified as
+ 888  10   0 |   a = Pass
+  57 382   0 |   b = No submission
+  24   7   0 |   c = Fail
+
