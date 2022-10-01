@@ -3,7 +3,7 @@ import os
 import matplotlib.pyplot as plt
 from general_functions import * 
 
-os.chdir(r"C:\Users\vince\Documents\thesis\data\raw_data\events")
+os.chdir(r"C:\Users\vince\Documents\thesis\data\events")
 
 """
     This method filters dataset based on pre-defined filter, using challenge and problem names
@@ -198,9 +198,6 @@ def get_student_dict(df, num_slides, problem_slides, challenge_name):
         # We have encountered a slide steps complete event for an interactive slide 
         if row.event_name == "slide_steps_complete" and row.slide_no not in problem_slides: 
             student_dict[student][row.slide_no] = 1
-        
-        elif row.event_name == "run_inline" and challenge_name != "challenge-newbies-2018":
-            student_dict[student][row.slide_no] = 1
 
         # We have encountered a problem failed event for a problem slide 
         elif row.event_name == "problem_failed" and row.slide_no in problem_slides:
@@ -213,9 +210,11 @@ def get_student_dict(df, num_slides, problem_slides, challenge_name):
         # We have encountered a problem passed event for a problem slide
         elif row.event_name == "problem_passed" and row.slide_no in problem_slides:
             student_dict[student][row.slide_no] = "P" 
+
+        elif row.event_name == "run_inline" and challenge_name != "challenge-newbies-2018" and row.slide_no not in problem_slides:
+            student_dict[student][row.slide_no] = 1
         
     return student_dict
-
 
 """"
     This method determines the problem slides in a particular module

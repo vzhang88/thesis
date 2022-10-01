@@ -45,11 +45,11 @@ def module_prediction(challenge_name):
     else:
         problem_names = ["w1p1", "w1p2", "w2p1", "w2p2", "w3p1", "w3p2", "w4p1", "w4p2", "w5p1", "w5p2"]
  
-    # Data to be converted into a dataframe 
-    data = []
-
     # Go through each of the modules 
     for problem_name in problem_names: 
+
+        # Data to be converted into a dataframe 
+        data = []
 
         # Inputs
         X = []
@@ -74,7 +74,8 @@ def module_prediction(challenge_name):
         temp_dict = get_student_dict(df, num_slides, problem_slides, challenge_name)
 
         # Last problem slide 
-        last_idx = problem_slides[-1]
+        # last_idx = problem_slides[-1]
+        last_idx = problem_slides[-3]
 
         # Go through all students in the module 
         for student in temp_dict:
@@ -85,26 +86,34 @@ def module_prediction(challenge_name):
             # Retrieve the student's interaction sequence 
             sequence = temp_dict[student]
 
-            # Replace all Ns with 0s and Fs with 1s and Ps with 2s
-            sequence[:] = [x if x != "N" else "class0" for x in sequence]
-            sequence[:] = [x if x != "F" else "class1" for x in sequence]
-            sequence[:] = [x if x != "P" else "class2" for x in sequence]
-            sequence[:] = [x if x != 0 else "Zero" for x in sequence]
-            sequence[:] = [x if x != 1 else "One" for x in sequence]
-            sequence[:] = [x if x != 2 else "Two" for x in sequence]
+            # Re-label the different slide interactions
+            sequence[:] = [x if x != "N" else "No submission" for x in sequence]
+            sequence[:] = [x if x != "F" else "Fail" for x in sequence]
+            sequence[:] = [x if x != "P" else "Pass" for x in sequence]
+            sequence[:] = [x if x != 0 else "No attempt" for x in sequence]
+            sequence[:] = [x if x != 1 else "Completed" for x in sequence]
 
             # The outcome is the outcome of the last problem slide in the module 
             outcome = sequence[last_idx] 
+
+            sequence = sequence[:last_idx]
+
+            # Check for error cases 
+            # if outcome == "No attempt" or outcome == "Completed":
+            #     continue
 
             # Append the outcome to the list of outcomes 
             y.append(outcome)
 
             # Remove the last problem from the sequence 
-            sequence.pop(last_idx)
+            # sequence.pop(last_idx)
 
             # If problems come in pairs, we expect that the first problem may be a predictor of the next, 
             # and so get rid of the first problem from the list - potentially, get rid of all problems 
-            if problem_slides[-2] == last_idx - 1:
+            # if problem_slides[-2] == last_idx - 1:
+                # sequence.pop(last_idx - 1)
+
+            if problem_slides[-4] == last_idx - 1:
                 sequence.pop(last_idx - 1)
 
             # Store the remaining sequence in the inputs vector 
@@ -130,7 +139,8 @@ def module_prediction(challenge_name):
                 rename_dict[col] = "Outcome"
 
         df.rename(columns=rename_dict, inplace=True)
-        df.to_csv("{}-{}.csv".format(challenge_name, problem_name), index=False)
+        df.to_csv("{}-{}-first_half.csv".format(challenge_name, problem_name), index=False)
+        
 
         # dummy_clf = DummyClassifier(strategy="most_frequent")
         # lreg_clf = LogisticRegression(random_state=0, max_iter=1000, multi_class="multinomial") 
@@ -172,7 +182,7 @@ def module_prediction(challenge_name):
 
 
 
-challenge_name = "challenge-beginners-blockly-2018"
+challenge_name = "challenge-beginners-2018"
 module_prediction(challenge_name)
 
 
