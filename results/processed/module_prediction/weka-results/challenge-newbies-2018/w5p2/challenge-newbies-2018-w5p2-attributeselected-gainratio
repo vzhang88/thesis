@@ -1,0 +1,106 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.meta.AttributeSelectedClassifier -E "weka.attributeSelection.GainRatioAttributeEval " -S "weka.attributeSelection.Ranker -T -1.7976931348623157E308 -N 2" -W weka.classifiers.trees.J48 -- -C 0.25 -M 2
+Relation:     challenge-newbies-2018-w5p2
+Instances:    638
+Attributes:   22
+              slide0
+              slide1
+              slide2
+              slide3
+              slide4
+              slide5
+              slide6
+              slide7
+              slide8
+              slide9
+              slide10
+              slide11
+              slide12
+              slide13
+              slide14
+              slide15
+              slide16
+              slide17
+              slide18
+              slide19
+              slide20
+              Outcome
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+AttributeSelectedClassifier:
+
+
+
+=== Attribute Selection on all input data ===
+
+Search Method:
+	Attribute ranking.
+
+Attribute Evaluator (supervised, Class (nominal): 22 Outcome):
+	Gain Ratio feature evaluator
+
+Ranked attributes:
+ 0.503    6 slide5
+ 0.417    5 slide4
+
+Selected attributes: 6,5 : 2
+
+
+Header of reduced data:
+@relation 'challenge-newbies-2018-w5p2-weka.filters.unsupervised.attribute.Remove-V-R6,5,22'
+
+@attribute slide5 {'No submission',Pass,Fail}
+@attribute slide4 {'No submission',Pass,Fail}
+@attribute Outcome {'No submission',Pass,Fail}
+
+@data
+
+
+Classifier Model
+J48 pruned tree
+------------------
+
+slide5 = No submission: No submission (268.0/10.0)
+slide5 = Pass: Pass (359.0/73.0)
+slide5 = Fail
+|   slide4 = No submission: No submission (1.0)
+|   slide4 = Pass: No submission (8.0/4.0)
+|   slide4 = Fail: Fail (2.0)
+
+Number of Leaves  : 	5
+
+Size of the tree : 	7
+
+
+Time taken to build model: 0 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances         549               86.0502 %
+Incorrectly Classified Instances        89               13.9498 %
+Kappa statistic                          0.7318
+Mean absolute error                      0.1559
+Root mean squared error                  0.2808
+Relative absolute error                 43.7635 %
+Root relative squared error             66.5731 %
+Total Number of Instances              638     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.827    0.050    0.943      0.827    0.881      0.783    0.873     0.884     No submission
+                 0.963    0.214    0.797      0.963    0.872      0.753    0.854     0.749     Pass
+                 0.000    0.000    ?          0.000    ?          ?        0.604     0.072     Fail
+Weighted Avg.    0.861    0.125    ?          0.861    ?          ?        0.855     0.792     
+
+=== Confusion Matrix ===
+
+   a   b   c   <-- classified as
+ 263  55   0 |   a = No submission
+  11 286   0 |   b = Pass
+   5  18   0 |   c = Fail
+

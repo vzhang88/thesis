@@ -1,0 +1,49 @@
+=== Run information ===
+
+Evaluator:    weka.attributeSelection.CfsSubsetEval -P 1 -E 1
+Search:       weka.attributeSelection.BestFirst -D 1 -N 5
+Relation:     challenge-beginners-2018-w1p2
+Instances:    7274
+Attributes:   19
+              slide0
+              slide1
+              slide2
+              slide3
+              slide4
+              slide5
+              slide6
+              slide7
+              slide8
+              slide9
+              slide10
+              slide11
+              slide12
+              slide13
+              slide14
+              slide15
+              slide16
+              slide17
+              Outcome
+Evaluation mode:    evaluate on all training data
+
+
+
+=== Attribute Selection on all input data ===
+
+Search Method:
+	Best first.
+	Start set: no attributes
+	Search direction: forward
+	Stale search after 5 node expansions
+	Total number of subsets evaluated: 97
+	Merit of best subset found:    0.603
+
+Attribute Subset Evaluator (supervised, Class (nominal): 19 Outcome):
+	CFS Subset Evaluator
+	Including locally predictive attributes
+
+Selected attributes: 11,15,16 : 3
+                     slide10
+                     slide14
+                     slide15
+

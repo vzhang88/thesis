@@ -1,0 +1,55 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.rules.ZeroR 
+Relation:     challenge-intermediate-2018-w4p2
+Instances:    2499
+Attributes:   14
+              slide0
+              slide1
+              slide2
+              slide3
+              slide4
+              slide5
+              slide6
+              slide7
+              slide8
+              slide9
+              slide10
+              slide11
+              slide12
+              Outcome
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+ZeroR predicts class value: Pass
+
+Time taken to build model: 0 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances        1351               54.0616 %
+Incorrectly Classified Instances      1148               45.9384 %
+Kappa statistic                          0     
+Mean absolute error                      0.348 
+Root mean squared error                  0.4171
+Relative absolute error                100      %
+Root relative squared error            100      %
+Total Number of Instances             2499     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 1.000    1.000    0.541      1.000    0.702      ?        0.499     0.540     Pass
+                 0.000    0.000    ?          0.000    ?          ?        0.498     0.429     No submission
+                 0.000    0.000    ?          0.000    ?          ?        0.485     0.028     Fail
+Weighted Avg.    0.541    0.541    ?          0.541    ?          ?        0.498     0.477     
+
+=== Confusion Matrix ===
+
+    a    b    c   <-- classified as
+ 1351    0    0 |    a = Pass
+ 1075    0    0 |    b = No submission
+   73    0    0 |    c = Fail
+

@@ -1,0 +1,67 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.trees.J48 -C 0.25 -M 2
+Relation:     challenge-newbies-2018-w5p1
+Instances:    741
+Attributes:   16
+              slide0
+              slide1
+              slide2
+              slide3
+              slide4
+              slide5
+              slide6
+              slide7
+              slide8
+              slide9
+              slide10
+              slide11
+              slide12
+              slide13
+              slide14
+              Outcome
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+J48 pruned tree
+------------------
+
+slide6 = No submission: No submission (291.0/11.0)
+slide6 = Pass: Pass (432.0/97.0)
+slide6 = Fail: No submission (18.0/2.0)
+
+Number of Leaves  : 	3
+
+Size of the tree : 	4
+
+
+Time taken to build model: 0 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances         631               85.1552 %
+Incorrectly Classified Instances       110               14.8448 %
+Kappa statistic                          0.7153
+Mean absolute error                      0.165 
+Root mean squared error                  0.2877
+Relative absolute error                 46.3203 %
+Root relative squared error             68.2012 %
+Total Number of Instances              741     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.798    0.035    0.958      0.798    0.871      0.773    0.861     0.871     No submission
+                 0.977    0.244    0.775      0.977    0.865      0.741    0.846     0.739     Pass
+                 0.000    0.000    ?          0.000    ?          ?        0.606     0.050     Fail
+Weighted Avg.    0.852    0.130    ?          0.852    ?          ?        0.845     0.780     
+
+=== Confusion Matrix ===
+
+   a   b   c   <-- classified as
+ 296  75   0 |   a = No submission
+   8 335   0 |   b = Pass
+   5  22   0 |   c = Fail
+

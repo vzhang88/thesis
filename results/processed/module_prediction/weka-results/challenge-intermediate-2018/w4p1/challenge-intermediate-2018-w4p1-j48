@@ -1,0 +1,71 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.trees.J48 -C 0.25 -M 2
+Relation:     challenge-intermediate-2018-w4p1
+Instances:    2829
+Attributes:   10
+              slide0
+              slide1
+              slide2
+              slide3
+              slide4
+              slide5
+              slide6
+              slide7
+              slide8
+              Outcome
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+J48 pruned tree
+------------------
+
+slide5 = Pass: Pass (1996.0/305.0)
+slide5 = No submission
+|   slide6 = No attempt: No submission (687.0/65.0)
+|   slide6 = Completed
+|   |   slide1 = No attempt
+|   |   |   slide7 = No attempt
+|   |   |   |   slide2 = No attempt: Pass (5.0/2.0)
+|   |   |   |   slide2 = Completed: No submission (2.0/1.0)
+|   |   |   slide7 = Completed: No submission (9.0/1.0)
+|   |   slide1 = Completed
+|   |   |   slide0 = No attempt: Pass (4.0)
+|   |   |   slide0 = Completed: No submission (5.0/1.0)
+slide5 = Fail: No submission (121.0/36.0)
+
+Number of Leaves  : 	8
+
+Size of the tree : 	14
+
+
+Time taken to build model: 0 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances        2412               85.2598 %
+Incorrectly Classified Instances       417               14.7402 %
+Kappa statistic                          0.676 
+Mean absolute error                      0.1698
+Root mean squared error                  0.2925
+Relative absolute error                 52.3337 %
+Root relative squared error             72.6152 %
+Total Number of Instances             2829     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.953    0.294    0.846      0.953    0.896      0.700    0.820     0.827     Pass
+                 0.740    0.058    0.870      0.740    0.800      0.713    0.830     0.775     No submission
+                 0.000    0.000    0.000      0.000    0.000      -0.003   0.548     0.039     Fail
+Weighted Avg.    0.853    0.205    0.830      0.853    0.837      0.684    0.816     0.786     
+
+=== Confusion Matrix ===
+
+    a    b    c   <-- classified as
+ 1694   84    0 |    a = Pass
+  251  718    1 |    b = No submission
+   58   23    0 |    c = Fail
+

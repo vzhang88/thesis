@@ -1,0 +1,57 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.rules.ZeroR 
+Relation:     challenge-beginners-blockly-2018-w3p1
+Instances:    992
+Attributes:   16
+              slide0
+              slide1
+              slide2
+              slide3
+              slide4
+              slide5
+              slide6
+              slide7
+              slide8
+              slide9
+              slide10
+              slide11
+              slide12
+              slide13
+              slide14
+              Outcome
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+ZeroR predicts class value: Pass
+
+Time taken to build model: 0 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances         614               61.8952 %
+Incorrectly Classified Instances       378               38.1048 %
+Kappa statistic                          0     
+Mean absolute error                      0.3169
+Root mean squared error                  0.3978
+Relative absolute error                100      %
+Root relative squared error            100      %
+Total Number of Instances              992     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 1.000    1.000    0.619      1.000    0.765      ?        0.493     0.615     Pass
+                 0.000    0.000    ?          0.000    ?          ?        0.495     0.375     No submission
+                 0.000    0.000    ?          0.000    ?          ?        0.199     0.003     Fail
+Weighted Avg.    0.619    0.619    ?          0.619    ?          ?        0.493     0.522     
+
+=== Confusion Matrix ===
+
+   a   b   c   <-- classified as
+ 614   0   0 |   a = Pass
+ 374   0   0 |   b = No submission
+   4   0   0 |   c = Fail
+

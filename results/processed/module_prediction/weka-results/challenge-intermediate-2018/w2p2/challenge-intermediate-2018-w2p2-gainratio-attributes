@@ -1,0 +1,56 @@
+=== Run information ===
+
+Evaluator:    weka.attributeSelection.GainRatioAttributeEval 
+Search:       weka.attributeSelection.Ranker -T -1.7976931348623157E308 -N -1
+Relation:     challenge-intermediate-2018-w2p2
+Instances:    3688
+Attributes:   17
+              slide0
+              slide1
+              slide2
+              slide3
+              slide4
+              slide5
+              slide6
+              slide7
+              slide8
+              slide9
+              slide10
+              slide11
+              slide12
+              slide13
+              slide14
+              slide15
+              Outcome
+Evaluation mode:    evaluate on all training data
+
+
+
+=== Attribute Selection on all input data ===
+
+Search Method:
+	Attribute ranking.
+
+Attribute Evaluator (supervised, Class (nominal): 17 Outcome):
+	Gain Ratio feature evaluator
+
+Ranked attributes:
+ 0.41702   4 slide3
+ 0.05038  12 slide11
+ 0.04491  13 slide12
+ 0.03412  14 slide13
+ 0.03159  16 slide15
+ 0.03088  11 slide10
+ 0.02902   6 slide5
+ 0.0237    8 slide7
+ 0.02065  10 slide9
+ 0.02046   7 slide6
+ 0.01952  15 slide14
+ 0.01676   9 slide8
+ 0.01416   5 slide4
+ 0.00677   3 slide2
+ 0.00645   2 slide1
+ 0.00289   1 slide0
+
+Selected attributes: 4,12,13,14,16,11,6,8,10,7,15,9,5,3,2,1 : 16
+

@@ -1,0 +1,56 @@
+=== Run information ===
+
+Evaluator:    weka.attributeSelection.GainRatioAttributeEval 
+Search:       weka.attributeSelection.Ranker -T -1.7976931348623157E308 -N -1
+Relation:     challenge-beginners-blockly-2018-w1p1
+Instances:    3372
+Attributes:   17
+              slide0
+              slide1
+              slide2
+              slide3
+              slide4
+              slide5
+              slide6
+              slide7
+              slide8
+              slide9
+              slide10
+              slide11
+              slide12
+              slide13
+              slide14
+              slide15
+              Outcome
+Evaluation mode:    evaluate on all training data
+
+
+
+=== Attribute Selection on all input data ===
+
+Search Method:
+	Attribute ranking.
+
+Attribute Evaluator (supervised, Class (nominal): 17 Outcome):
+	Gain Ratio feature evaluator
+
+Ranked attributes:
+ 0.6965  14 slide13
+ 0.522   10 slide9
+ 0.3914   8 slide7
+ 0.3213   4 slide3
+ 0.1999  16 slide15
+ 0.1694  15 slide14
+ 0.1179  13 slide12
+ 0.116   12 slide11
+ 0.1078  11 slide10
+ 0.0892   1 slide0
+ 0.0815   9 slide8
+ 0.0546   6 slide5
+ 0.0488   7 slide6
+ 0.0433   5 slide4
+ 0.0297   3 slide2
+ 0.0211   2 slide1
+
+Selected attributes: 14,10,8,4,16,15,13,12,11,1,9,6,7,5,3,2 : 16
+
