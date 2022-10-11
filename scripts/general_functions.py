@@ -62,8 +62,18 @@ def get_cross_val_score(X, y, clf):
         # Evaluate the classifier 
         clf = clf.fit(X_train, y_train)
 
+        # ADDITION
+        y_target = clf.predict(X_test)
+        print(y_target)
+        num_correct = 0
+        for i in range(len(y_target)):
+            if y_target[i] == y_test[i] and y_target[i] == "Late dropout":
+                num_correct += 1
+        
         # Retrieve the score and append it to the scores list 
-        score = clf.score(X_test,y_test)
+        # score = clf.score(X_test,y_test)
+        y_test = y_test.tolist()
+        score = num_correct / y_test.count("Late dropout")
         scores.append(score)
         
     ave_score = sum(scores)/len(scores)

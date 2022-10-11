@@ -19,12 +19,6 @@ from dropout import *
     and evaluates the accuracy of the prediction against a base classifier. If there are two 
     final problems in a module, then this problem uses all slides preceding the paired problems
     (i.e. it excludes the first of the paired problems)
-
-    WENT THROUGH ALL MODULES - NOT A SINGLE EVENT WAS SINGLE STEPS - WHY 
-    WE KNOW FROM THE FILE THAT THERE ARE 107523 instances in total 
-    and 
-
-    MISTAKE: DON'T WRITE CODE IN THE OTHER FILES 
 """
 def test(challenge_name):
     file = 'events_processed.csv'
@@ -182,7 +176,7 @@ def module_prediction(challenge_name):
 
 
 
-challenge_name = "challenge-beginners-2018"
+challenge_name = "challenge-beginners-blockly-2018"
 module_prediction(challenge_name)
 
 

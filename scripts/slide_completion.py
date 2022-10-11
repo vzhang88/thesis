@@ -288,13 +288,10 @@ def get_slide_completion_dict(student_dict):
     This method plots the number of times a slide was completed (slide completion rate) against the slide number 
     across all 10 modules.
 """
-def slide_completion_plots():
+def slide_completion_plots(challenge_name):
 
     # Load the file 
     file = 'events_processed.csv'
-
-    # Specify the challenge name 
-    challenge_name = "challenge-newbies-2018"
 
     # Read the file into a dataframe 
     df = pd.read_csv(file)
@@ -322,7 +319,7 @@ def slide_completion_plots():
         df = df.sort_values(by=['user_id'])  
 
         # Retrieve the dictionary of student IDs (keys) and their sequences for the given module 
-        student_dict = get_student_dict(df, num_slides, problem_slides)
+        student_dict = get_student_dict(df, num_slides, problem_slides, challenge_name)
 
         # Retrieve the dictionary of slide numbers (keys) and the number of times that slide was attempted by students (values)
         slide_completion_dict = get_slide_completion_dict(student_dict)
@@ -360,7 +357,7 @@ def get_default_sequences(challenge_name):
     df = pd.read_csv(file) 
     if challenge_name == "challenge-newbies-2018":
         problem_names = ["w1p1", "w1p2", "w2p1", "w2p2", "w3p1n", "w3p2", "w4p1", "w4p2", "w5p1", "w5p2"]
-    elif challenge_name == "challenge-beginners-2018":
+    else:
         problem_names =  ["w1p1", "w1p2", "w2p1", "w2p2", "w3p1", "w3p2", "w4p1", "w4p2", "w5p1", "w5p2"]
     default_sequences = []
 
@@ -392,9 +389,8 @@ def get_default_sequences(challenge_name):
     Returns: A dictionary containing module names (keys) and a list of important slides in the module (values)
     Note: This only works for challenge-newbies-2018 so far, due to the thresholds 
 """
-def get_important_slides():
+def get_important_slides(challenge_name):
     file = 'events_processed.csv'
-    challenge_name = "challenge-newbies-2018"
     df = pd.read_csv(file)
     problem_names = ["w1p1", "w1p2", "w2p1", "w2p2", "w3p1n", "w3p2", "w4p1", "w4p2", "w5p1", "w5p2"]
     important_slide_dict = {}
@@ -410,7 +406,7 @@ def get_important_slides():
         # Sort the dataset by users 
         df = df.sort_values(by=['user_id'])  
 
-        student_dict = get_student_dict(df, num_slides, problem_slides)
+        student_dict = get_student_dict(df, num_slides, problem_slides, challenge_name)
         slide_completion_dict = get_slide_completion_dict(student_dict)
 
         unimportant_slides = []
@@ -456,7 +452,7 @@ def plot_problem_interaction_one_module():
         num_students = len(df["user_id"].unique())
         print("The number of students is {}".format(num_students))
         
-        student_dict = get_student_dict(df, num_slides, problem_slides)
+        student_dict = get_student_dict(df, num_slides, problem_slides, challenge_name)
         outcomes_dict, sequences_dict = get_results_dicts(student_dict, problem_slides)
         final_outcomes_dict, final_sequences_dict = aggregate(outcomes_dict, sequences_dict, num_students)
         plot_results(final_outcomes_dict, final_sequences_dict, problem_name)
@@ -499,7 +495,7 @@ def get_interaction_dicts(challenge_name):
 
         # Temp student dict contains student IDs as keys, and interaction sequences for 
         # the particular module only
-        temp_student_dict = get_student_dict(df, num_slides, problem_slides)
+        temp_student_dict = get_student_dict(df, num_slides, problem_slides, challenge_name)
 
         # Iterate through all students in the module
         for student in temp_student_dict:

@@ -1,4 +1,15 @@
-from slide_completion import * 
+import numpy as np
+from sklearn.metrics import *
+from sklearn.model_selection import *
+import pandas as pd
+from sklearn.linear_model import LogisticRegression
+from general_functions import * 
+from sklearn.dummy import DummyClassifier
+from sklearn.naive_bayes import GaussianNB
+from sklearn.dummy import DummyClassifier
+from sklearn.tree import DecisionTreeClassifier
+from slide_completion import *
+
 """
     Determines the dropout class for all students in the challenge using their problem sequences
     and creates a new dataframe that contains the dropout class as well as the whole interaction sequence
@@ -116,3 +127,47 @@ def get_dropout_module(sequence):
         return dropout_index/2 + 1
 
 
+def get_dropout_dfs():
+    challenges = ['challenge-newbies-2018', 'challenge-beginners-blockly-2018', 'challenge-beginners-2018', 'challenge-intermediate-2018']
+    for challenge in challenges:
+        get_dropout_df(challenge)
+
+
+def dropout_prediction(challenge_name):
+    
+    os.chdir(r"C:\Users\vince\Documents\thesis\data\events")
+    df = pd.read_csv('dropout_df_{}.csv'.format(challenge_name))
+    sequences = get_sequences(df)
+
+    for sequence in sequences:
+        sequence[:] = [x if x != "N" else 0 for x in sequence]
+        sequence[:] = [x if x != "F" else 1 for x in sequence]
+        sequence[:] = [x if x != "P" else 2 for x in sequence]
+        # sequence = sequence[:1]
+
+    # Features 
+    X = np.array(sequences)
+    
+    # Outcome 
+    y = list(df["Status"])
+    y = np.array(y)
+
+    dummy_clf = DummyClassifier(strategy="most_frequent")
+    lreg_clf = LogisticRegression(random_state=0, max_iter=1000, multi_class="multinomial") 
+    nb_clf = GaussianNB()
+    dt_clf = DecisionTreeClassifier()
+    
+    base_score = get_cross_val_score(X, y, dummy_clf)
+    lreg_score = get_cross_val_score(X, y, lreg_clf)
+    nb_score = get_cross_val_score(X, y, nb_clf)
+    dt_score = get_cross_val_score(X, y, dt_clf)
+     
+    # Also print out base class 
+    print(base_score)
+    print(lreg_score)
+    print(nb_score)
+    print(dt_score)
+
+# Somehow there are no dropouts 
+challenge_name = "challenge-intermediate-2018"
+dropout_prediction(challenge_name)
